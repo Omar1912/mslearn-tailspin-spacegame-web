@@ -1,5 +1,9 @@
+
 trigger:
 - '*'
+
+
+
 
 pool:
   name: Default
@@ -12,6 +16,9 @@ variables:
   dotnetSdkVersion: '8.x'
 
 steps:
+# At the very top
+- checkout: self
+  clean: true
 - task: UseDotNet@2
   displayName: 'Use .NET SDK $(dotnetSdkVersion)'
   inputs:
